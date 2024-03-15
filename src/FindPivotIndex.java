@@ -1,24 +1,18 @@
-
+// leetcode 724
 public class FindPivotIndex {
 
     public int pivotIndex(int[] nums) {
 
-        int length = nums.length;
-        int[] leftSum = new int[length];
-        int[] rightSum = new int[length];
+        int sum = 0, lsum = 0;
 
-        for (int i = 1; i < length; i++) {
-            leftSum[i] = leftSum[i - 1] + nums[i - 1];
-        }
+        for (int num: nums)
+           sum += num;
 
-        for (int i = length - 2; i >= 0; i--) {
-            rightSum[i] = rightSum[i + 1] + nums[i + 1];
-        }
-
-        for (int i = 0; i < length; i++) {
-            if (leftSum[i] == rightSum[i]) {
+        for (int i = 0; i < nums.length; i++) {
+            if (lsum == sum - nums[i] - lsum) {
                 return i;
             }
+            lsum += nums[i];
         }
 
         return -1;
