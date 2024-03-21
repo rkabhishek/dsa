@@ -1,4 +1,4 @@
-// leetcode 186
+package string;// leetcode 186
 
 public class ReverseOrderOfWords2 {
     public void reverseWords(char[] s) {
