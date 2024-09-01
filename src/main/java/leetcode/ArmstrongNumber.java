@@ -1,5 +1,6 @@
 package main.java.leetcode;
 
+// leetcode 1134
 public class ArmstrongNumber {
     public boolean isArmstrong(int n) {
         int digitCount = String.valueOf(n).length();
