@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PrintDivisors {
     public void printDivisors(int n) {
-        for (int i = 1; i <= Math.sqrt(n); i++) {
+        for (int i = 1; i * i <= n; i++) {
             if (n % i == 0) {
                 System.out.print(i + " ");
                 if (n / i != i) {
@@ -20,7 +20,7 @@ public class PrintDivisors {
     public void printDivisors2(int n) {
         List<Integer> divisors = new ArrayList<>();
 
-        for (int i = 1; i <= Math.sqrt(n); i++) {
+        for (int i = 1; i * i <= n; i++) {
             if (n % i == 0) {
                 divisors.add(i);
                 if (n / i != i) {
