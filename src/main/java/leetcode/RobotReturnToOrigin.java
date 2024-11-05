@@ -3,20 +3,23 @@ package main.java.leetcode;
 // leetcode 657
 public class RobotReturnToOrigin {
     public boolean judgeCircle(String moves) {
-        int horizontalDisplacement = 0;
-        int verticalDisplacement = 0;
-        for (char c: moves.toCharArray()) {
+        int x = 0;
+        int y = 0;
+
+        for (int i = 0; i < moves.length(); i++) {
+            char c = moves.charAt(i);
+
             if (c == 'U') {
-                verticalDisplacement++;
+                y--;
             } else if (c == 'D') {
-                verticalDisplacement--;
+                y++;
             } else if (c == 'R') {
-                horizontalDisplacement++;
+                x++;
             } else {
-                horizontalDisplacement--;
+                x--;
             }
         }
 
-        return (horizontalDisplacement == 0 && verticalDisplacement == 0);
+        return (x == 0 && y == 0);
     }
 }
