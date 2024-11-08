@@ -5,11 +5,31 @@ import java.util.Arrays;
 // leetcode 88
 public class MergeSortedArray {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-		for (int i = 0; i < n; i++) {
-			nums1[m + i] = nums2[i];
+		int[] temp = new int[m];
+		int i = 0, j = 0, k = 0;
+
+		while (i < m) {
+			temp[i] = nums1[i];
+			i++;
 		}
 
-	    Arrays.sort(nums1);
-	    System.out.println(Arrays.toString(nums1));
-    }
+		i = 0;
+	    while (i < m && j < n) {
+		    if (temp[i] <= nums2[j]) {
+			    nums1[k++] = temp[i++];
+		    } else {
+			    nums1[k++] = nums2[j++];
+		    }
+	    }
+
+	    if (i == m) {
+		    while (j < n) {
+				nums1[k++] = nums2[j++];
+		    }
+	    } else {
+		    while (i < m) {
+			    nums1[k++] = temp[i++];
+		   }
+	    }
+	}
 }
