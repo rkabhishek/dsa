@@ -7,11 +7,12 @@ public class MatrixDiagonalSum {
         int sum = 0;
 
         for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++) {
-                if (i == j || (i + j == dimension - 1)) {
-                    sum += mat[i][j];
-                }
-            }
+            sum += mat[i][i];
+            sum += mat[i][dimension - 1 - i];
+        }
+
+        if (dimension % 2 != 0) {
+            sum -= mat[dimension / 2][dimension / 2];
         }
 
         return sum;
